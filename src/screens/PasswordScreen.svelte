@@ -14,5 +14,5 @@
 		id="password"
 		placeholder="Enter a password"
 	/>
-	<button onclick={() => props.submitPassword(password)}>→</button>
+	<button onclick={() => props.submitPassword(password)}>✔️</button>
 </div>

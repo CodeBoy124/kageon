@@ -52,7 +52,7 @@
 	}
 </script>
 
-<main>
+<main class="vertical small-gap">
 	{#if currentScreen == ScreenKind.PASSWORD}
 		<PasswordScreen submitPassword={receivePassword} />
 	{:else if currentScreen == ScreenKind.OVERVIEW}

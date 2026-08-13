@@ -51,16 +51,18 @@
 <ol>
 	{#each commandment_descriptions as commandment_desc, index (commandment_desc)}
 		<li>
-			<div>
+			<div class="horizontal small-gap">
 				<h2>{commandment_desc} commandment</h2>
-				<button onclick={() => addSinToCommandment(index)}>+</button>
+				<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
 			</div>
 			<ul>
 				{#each stored.value.sins.filter((s) => s.commandment == index) as sin (sin.uid)}
-					<li>
-						<button onclick={() => removeSin(sin.uid)}>-</button>
-						<button onclick={() => editSin(sin.uid)}>~</button>
-						<span>{sin.sin}</span>
+					<li class="horizontal small-gap">
+						<div class="horizontal">
+							<button class="icon" onclick={() => removeSin(sin.uid)}>🗑️</button>
+							<button class="icon" onclick={() => editSin(sin.uid)}>✏️</button>
+						</div>
+						<span>{sin.sin.split('\n')[0]}</span>
 					</li>
 				{/each}
 			</ul>
