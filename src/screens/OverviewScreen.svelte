@@ -49,22 +49,24 @@
 	}
 </script>
 
-<ol class="vertical-left-align">
+<ol class="vertical-left-align width-full">
 	{#each commandment_descriptions as commandment_desc, index (commandment_desc)}
-		<li>
-			<div class="horizontal">
+		<li class="width-full">
+			<div class="horizontal width-full space-between">
 				<h2>{commandment_desc} commandment</h2>
 				<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
 			</div>
-			<ul class="vertical-left-align">
+			<ul class="vertical-left-align width-full">
 				{#each stored.value.sins.filter((s) => s.commandment == index) as sin (sin.uid)}
-					<li class="horizontal">
+					<li class="horizontal width-full">
 						<button class="icon" onclick={() => removeSin(sin.uid)}>🗑️</button>
 						<button
-							class={sin.weight == SinWeightProperty.MORTAL
-								? 'like-anchor mortal-sin'
-								: 'like-anchor'}
-							onclick={() => editSin(sin.uid)}>{sin.sin.split('\n')[0]}</button
+							// class={sin.weight == SinWeightProperty.MORTAL
+							// 	? 'like-anchor mortal-sin'
+							// 	: 'like-anchor'}
+							class="like-anchor"
+							onclick={() => editSin(sin.uid)}
+							>{sin.weight == SinWeightProperty.MORTAL ? '⚠️' : ''}{sin.sin.split('\n')[0]}</button
 						>
 					</li>
 				{/each}
@@ -73,4 +75,6 @@
 	{/each}
 </ol>
 
-<button onclick={finishConfession}>Close {time_since_last_confession} of sins</button>
+<button class="width-full" onclick={finishConfession}
+	>Close {time_since_last_confession} of sins</button
+>

@@ -44,7 +44,7 @@
 </script>
 
 {#if props.openedSinUid != null}
-	<div class="horizontal">
+	<div class="horizontal width-full space-center">
 		<label for="sin-weight">Weight</label>
 		<select bind:value={sin_weight} name="sin-weight" id="sin-weight">
 			<option value={SinWeightProperty.VENIAL}>Venial</option>
@@ -52,9 +52,9 @@
 		</select>
 	</div>
 
-	<textarea bind:value={sin_txt_in} placeholder="Your sin"></textarea>
+	<textarea class="width-full" bind:value={sin_txt_in} placeholder="Your sin"></textarea>
 
-	<div class="horizontal">
+	<div class="horizontal width-full space-between">
 		<button class="icon" onclick={discardChange}>❌</button>
 		<button class="icon" onclick={applyChange}>✔️</button>
 	</div>
