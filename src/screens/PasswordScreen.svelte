@@ -6,7 +6,7 @@
 
 <h1>Welcome</h1>
 <span>Beginner tour <a href="#">here</a></span>
-<div>
+<div class="horizontal">
 	<input
 		bind:value={password}
 		type="password"
@@ -14,5 +14,5 @@
 		id="password"
 		placeholder="Enter a password"
 	/>
-	<button onclick={() => props.submitPassword(password)}>✔️</button>
+	<button class="icon" onclick={() => props.submitPassword(password)}>✔️</button>
 </div>

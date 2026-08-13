@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { SafePersistantState } from '$lib/persistedEncryptedState.svelte';
 	import type { AppStorageStructure } from '$lib/types';
+	import { SinWeightProperty } from '$lib/types';
 
 	let {
 		stored,
@@ -48,21 +49,23 @@
 	}
 </script>
 
-<ol>
+<ol class="vertical-left-align">
 	{#each commandment_descriptions as commandment_desc, index (commandment_desc)}
 		<li>
-			<div class="horizontal small-gap">
+			<div class="horizontal">
 				<h2>{commandment_desc} commandment</h2>
 				<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
 			</div>
-			<ul>
+			<ul class="vertical-left-align">
 				{#each stored.value.sins.filter((s) => s.commandment == index) as sin (sin.uid)}
-					<li class="horizontal small-gap">
-						<div class="horizontal">
-							<button class="icon" onclick={() => removeSin(sin.uid)}>🗑️</button>
-							<button class="icon" onclick={() => editSin(sin.uid)}>✏️</button>
-						</div>
-						<span>{sin.sin.split('\n')[0]}</span>
+					<li class="horizontal">
+						<button class="icon" onclick={() => removeSin(sin.uid)}>🗑️</button>
+						<button
+							class={sin.weight == SinWeightProperty.MORTAL
+								? 'like-anchor mortal-sin'
+								: 'like-anchor'}
+							onclick={() => editSin(sin.uid)}>{sin.sin.split('\n')[0]}</button
+						>
 					</li>
 				{/each}
 			</ul>

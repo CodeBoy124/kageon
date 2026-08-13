@@ -11,21 +11,22 @@ $icon-size: 18px
 
 body
 	padding: 0px 20px
-	background-color: black
-	color: white
 
 button,input,select,textarea
-	cursor: auto
-	background-color: black
-	color: white
-	&:not(.icon)
-		padding: $small-padding
-		border: 1px solid white
-button:hover
-		filter: brightness(150%) contrast(50%)
+	padding: $small-padding
+button
+	border: none
+	font-size: large
+button.like-anchor
+	background: none//!important
+	border: none
+	padding: 0//!important
+	color: #069
+	text-decoration: underline
+	cursor: pointer
 
 main
-	max-width: 700px
+	max-width: 500px
 	margin: auto
 	padding: $small-padding
 
@@ -37,16 +38,21 @@ main
 .horizontal
 	display: flex
 	align-items: center
+	gap: $small-padding
 
 .vertical
 	display: flex
 	flex-direction: column
 	align-items: center
-
-.small-gap
 	gap: $small-padding
 
+.vertical-left-align
+	@extend .vertical
+	align-items: start
+
 .icon
-	border: 0
 	font-size: large
 	padding: $x-small-size
+
+.mortal-sin
+	background: yellow !important

@@ -44,7 +44,7 @@
 </script>
 
 {#if props.openedSinUid != null}
-	<div class="horizontal small-gap">
+	<div class="horizontal">
 		<label for="sin-weight">Weight</label>
 		<select bind:value={sin_weight} name="sin-weight" id="sin-weight">
 			<option value={SinWeightProperty.VENIAL}>Venial</option>
