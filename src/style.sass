@@ -2,6 +2,10 @@ $x-small-size: 5px
 $small-padding: 10px
 $icon-size: 18px
 
+@media (prefers-color-scheme: dark)
+	*
+		color-scheme: dark
+
 *
 	padding: 0
 	margin: 0
@@ -62,3 +66,14 @@ main
 
 .mortal-sin
 	background: yellow !important
+
+@keyframes balloon-bottom-to-top
+	from
+		top: 100%
+	to
+		top: -25%
+
+.balloon
+	position: fixed
+	top: 100%
+	animation: balloon-bottom-to-top 10s ease-out

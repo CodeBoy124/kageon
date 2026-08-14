@@ -6,11 +6,13 @@
 	let {
 		stored,
 		addSinToCommandment,
-		editSin
+		editSin,
+		createPartyEffect
 	}: {
 		stored: SafePersistantState<AppStorageStructure>;
 		addSinToCommandment: (commandment: number) => void;
 		editSin: (uid: string) => void;
+		createPartyEffect: () => void;
 	} = $props();
 	const commandment_descriptions = [
 		'1st',
@@ -42,6 +44,7 @@
 	function finishConfession() {
 		stored.value.last_confession = Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24);
 		stored.value.sins = [];
+		createPartyEffect();
 	}
 
 	function removeSin(uid: string) {
