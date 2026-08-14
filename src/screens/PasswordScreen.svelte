@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	const props: { submitPassword: (val: string) => void } = $props();
 
 	let password = $state('');
 </script>
 
 <h1>Welcome</h1>
-<span>Beginner tour <a href="#">here</a></span>
+<span>Beginner tour <a href={resolve('/docs/')}>here</a></span>
 <div class="horizontal">
 	<input
 		bind:value={password}
