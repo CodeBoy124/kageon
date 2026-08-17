@@ -15,16 +15,17 @@
 		createPartyEffect: () => void;
 	} = $props();
 	const commandment_descriptions = [
-		'1st',
-		'2nd',
-		'3rd',
-		'4th',
-		'5th',
-		'6th',
-		'7th',
-		'8th',
-		'9th',
-		'10th'
+		'1st commandment',
+		'2nd commandment',
+		'3rd commandment',
+		'4th commandment',
+		'5th commandment',
+		'6th commandment',
+		'7th commandment',
+		'8th commandment',
+		'9th commandment',
+		'10th commandment',
+		'Additional'
 	];
 
 	let time_since_last_confession = $derived.by(() => {
@@ -56,7 +57,7 @@
 	{#each commandment_descriptions as commandment_desc, index (commandment_desc)}
 		<li class="width-full">
 			<div class="horizontal width-full space-between">
-				<h2>{commandment_desc} commandment</h2>
+				<h2>{commandment_desc}</h2>
 				<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
 			</div>
 			<ul class="vertical-left-align width-full">
