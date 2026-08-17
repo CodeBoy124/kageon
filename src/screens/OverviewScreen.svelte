@@ -63,12 +63,7 @@
 				{#each stored.value.sins.filter((s) => s.commandment == index) as sin (sin.uid)}
 					<li class="horizontal width-full">
 						<button class="icon" onclick={() => removeSin(sin.uid)}>🗑️</button>
-						<button
-							// class={sin.weight == SinWeightProperty.MORTAL
-							// 	? 'like-anchor mortal-sin'
-							// 	: 'like-anchor'}
-							class="like-anchor"
-							onclick={() => editSin(sin.uid)}
+						<button class="like-anchor text-left" onclick={() => editSin(sin.uid)}
 							>{sin.weight == SinWeightProperty.MORTAL ? '⚠️' : ''}{sin.sin.split('\n')[0]}</button
 						>
 					</li>
