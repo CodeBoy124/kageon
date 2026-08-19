@@ -29,7 +29,6 @@
 <h3>Usefull links</h3>
 <ul class="text-center">
 	<li><a href={resolve('/docs')}>🚧Beginner tour🚧</a></li>
-	<li><a href="https://www.bible.com/bible/111/EXO.20">Exodus 20 (ten commandments)</a></li>
 	<li>
 		<a href="https://www.jesuits.org/spirituality/the-ignatian-examen/">Daily Examine</a>
 	</li>
