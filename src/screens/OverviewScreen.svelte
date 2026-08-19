@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { SafePersistantState } from '$lib/persistedEncryptedState.svelte';
 	import type { AppStorageStructure } from '$lib/types';
-	import { SinWeightProperty } from '$lib/types';
+	import { CommandmentsVariant, SinWeightProperty } from '$lib/types';
 
 	let {
 		stored,
@@ -14,7 +14,8 @@
 		editSin: (uid: string) => void;
 		createPartyEffect: () => void;
 	} = $props();
-	const commandment_descriptions = [
+
+	const commandment_titles = [
 		'1st commandment',
 		'2nd commandment',
 		'3rd commandment',
@@ -27,6 +28,35 @@
 		'10th commandment',
 		'Additional'
 	];
+
+	const commandment_names = {
+		[CommandmentsVariant.CATHOLIC]: [
+			'I am the Lord thy God: You shall have no other gods but me.',
+			'You shall not take the name of the Lord your God in vain.',
+			"Remember to keep holy the Lord's Day.",
+			'Honor your father and mother.',
+			'You shall not kill.',
+			'You shall not commit adultery.',
+			'You shall not steal.',
+			'You shall not bear false witness against your neighbor.',
+			"You shall not covet your neighbor's wife.",
+			"You shall not covet your neighbor's goods.",
+			null
+		],
+		[CommandmentsVariant.PROTESTANT]: [
+			'I am the Lord thy God: You shall have no other gods but me.',
+			'You shall not make unto you any graven images.',
+			'You shall not take the name of the Lord your God in vain.',
+			"Remember to keep holy the Lord's Day.",
+			'Honor your mother and father.',
+			'You shall not murder.',
+			'You shall not commit adultery.',
+			'You shall not steal.',
+			'You shall not bear false witness.',
+			'You shall not covet anything that belongs to your neighbor.',
+			null
+		]
+	};
 
 	let time_since_last_confession = $derived.by(() => {
 		const today_datestamp = Math.floor(new Date().getTime() / 1000 / 60 / 60 / 24);
@@ -53,12 +83,28 @@
 	}
 </script>
 
+<select bind:value={stored.value.commandments_variant}>
+	<option value={CommandmentsVariant.CATHOLIC}>Catholic variant</option>
+	<option value={CommandmentsVariant.PROTESTANT}>Protestant variant</option>
+</select>
+
 <ol class="vertical-left-align width-full">
-	{#each commandment_descriptions as commandment_desc, index (commandment_desc)}
-		<li class="width-full">
-			<div class="horizontal width-full space-between">
-				<h2>{commandment_desc}</h2>
-				<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
+	{#each commandment_titles as commandment_desc, index (commandment_desc)}
+		<li class="width-full vertical">
+			<div class="width-full">
+				<div class="horizontal width-full space-between">
+					<h2>{commandment_desc}</h2>
+					<button class="icon" onclick={() => addSinToCommandment(index)}>➕</button>
+				</div>
+				{#if commandment_names[stored.value.commandments_variant ?? CommandmentsVariant.CATHOLIC][index] != null}
+					<p>
+						<i>
+							{commandment_names[stored.value.commandments_variant ?? CommandmentsVariant.CATHOLIC][
+								index
+							]}
+						</i>
+					</p>
+				{/if}
 			</div>
 			<ul class="vertical-left-align width-full">
 				{#each stored.value.sins.filter((s) => s.commandment == index) as sin (sin.uid)}
