@@ -91,3 +91,28 @@ main
 	background-color: transparent
 	color: transparent
 	height: 1rem;
+
+.doc-page-title
+	border-top: 1px solid currentColor
+	border-bottom: 1px solid currentColor
+	margin: 1rem 0;
+
+.doc-element-container
+	display: flex
+	flex-direction: column
+	gap: 1rem
+
+.doc-element
+	display: flex
+	align-items: center
+	& > *
+		width: 100%;
+
+.doc-element-desc
+	padding: 0rem 1rem
+
+@media (max-width: 500px)
+	.doc-element
+		flex-direction: column
+	.doc-element-desc
+		padding: 1rem 0rem
