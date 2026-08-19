@@ -28,7 +28,7 @@
 
 <h3>Usefull links</h3>
 <ul class="text-center">
-	<li><a href={resolve('/docs')}>⭐Beginner tour</a></li>
+	<li><a href={resolve('/docs')}>⭐Features & documentation</a></li>
 	<li>
 		<a href="https://www.jesuits.org/spirituality/the-ignatian-examen/">Daily Examine</a>
 	</li>

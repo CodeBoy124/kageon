@@ -27,7 +27,7 @@ button.like-anchor
 	color: #069
 	cursor: pointer
 
-main
+main,.main-like
 	max-width: 500px
 	margin: auto
 	padding: $small-padding
@@ -36,6 +36,9 @@ main
 	flex-direction: column
 	align-items: center
 	justify-content: center
+
+hr:not(.divider)
+	margin: 2rem 0
 
 .wrap-balance
 	text-wrap: balance
@@ -90,12 +93,10 @@ main
 .divider
 	background-color: transparent
 	color: transparent
-	height: 1rem;
+	height: 1rem
 
 .doc-page-title
-	border-top: 1px solid currentColor
-	border-bottom: 1px solid currentColor
-	margin: 1rem 0;
+	margin: 1rem 0
 
 .doc-element-container
 	display: flex
@@ -106,7 +107,7 @@ main
 	display: flex
 	align-items: center
 	& > *
-		width: 100%;
+		width: 100%
 
 .doc-element-desc
 	padding: 0rem 1rem
